@@ -1,0 +1,70 @@
+@keyframes fadeIn {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.menu {
+    margin: 12px 0;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    margin: 0;
+    text-align: left;
+    transition: all .4s;
+    user-select: none;
+    cursor: pointer;
+}
+
+span {
+    display: inline-block;
+    margin: 0 8px;
+    transition: all .4s;
+}
+
+ul {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin: 0;
+    background-color: #a7d4ff;
+    transition: all .4s;
+    animation: fadeIn 1s;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    transition: all .4s;
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+    transition: all .4s;
+}
+
+.rotate0 {
+    transform: rotate(0deg);
+}
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+.active {
+    background-color: rgb(191, 255, 197);
+}

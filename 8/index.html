@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 8</title>
+    <style>
+        #field {
+            width: 200px;
+            height: 150px;
+            border: 10px solid black;
+            background-color: #00FF00;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body style="height:2000px">
+    Натисніть поле для переміщення м'яча.
+    <br>
+    М'яч не повинен виходити за межі поля.
+    <div id="field">
+        <img src="https://ru.js.cx/clipart/ball.svg" id="ball">
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+    <script>
+        field.style.position = 'relative';
+        field.style.cursor = 'pointer';
+        field.style.userSelect = 'none';
+        
+        ball.style.position = 'absolute';
+        ball.style.transition = 'all .3s'; //анімація
+        ball.style.top = '10px';
+        ball.style.left = '10px';
+        ball.style.width = '30px';
+
+        field.addEventListener('click', function (event) {
+            let fieldCoordinates = field.getBoundingClientRect(); //координати field відносно вікна
+
+            //Центруємо ball
+            let ballCenterY = ball.clientHeight / 2; 
+            let ballCenterX = ball.clientWidth / 2;
+
+            //Вираховуємо з координат, отриманих з event, координати field, рамку field та половину розмірів ball
+            let ballCoordinatesTop = event.clientY - fieldCoordinates.top - field.clientTop - ballCenterY;
+            let ballCoordinatesLeft = event.clientX - fieldCoordinates.left - field.clientLeft - ballCenterX;
+
+            //забороняємо ball виходити за field
+            if (ballCoordinatesTop < 0) ballCoordinatesTop = 0; //верхня межа
+            if (ballCoordinatesLeft + ball.clientWidth > field.clientWidth) ballCoordinatesLeft = field.clientWidth - ball.clientWidth; //права межа
+            if (ballCoordinatesTop + ball.clientHeight > field.clientHeight) ballCoordinatesTop = field.clientHeight - ball.clientHeight; //нижня межа
+            if (ballCoordinatesLeft < 0) ballCoordinatesLeft = 0; //ліва межа
+
+            //Переміщуємо ball
+            ball.style.left = ballCoordinatesLeft + 'px';
+            ball.style.top = ballCoordinatesTop + 'px';
+        })
+    </script>
+</body>
+
+</html>

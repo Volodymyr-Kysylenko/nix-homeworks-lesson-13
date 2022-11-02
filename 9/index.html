@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 9</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="menu">
+        <button>
+            <span class="rotate0">▶</span>
+            Натисни на мене
+        </button>
+        <ul class="hidden">
+            <li>Тістечко</li>
+            <li>Пончик</li>
+            <li>Мед</li>
+        </ul>
+    </div>
+    <div class="menu">
+        <button>
+            <span class="rotate0">▶</span>
+            Натисни на мене
+        </button>
+        <ul class="hidden">
+            <li>Тістечко</li>
+            <li>Пончик</li>
+            <li>Мед</li>
+        </ul>
+    </div>
+    <script>
+        document.querySelectorAll('.menu button').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+                this.firstElementChild.classList.toggle('rotate0');
+                this.firstElementChild.classList.toggle('rotate90');
+                this.nextElementSibling.classList.toggle('hidden');
+                this.nextElementSibling.classList.toggle('visible');
+            })
+        })
+    </script>
+</body>
+
+</html>

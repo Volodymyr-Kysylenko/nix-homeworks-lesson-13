@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 11</title>
+</head>
+
+<body>
+    <select id="genres">
+        <option value="rock">Рок</option>
+        <option value="blues" selected>Блюз</option>
+    </select>
+
+    <script>
+        let genresSelect = document.querySelector('#genres');
+
+        let selectedGenre = genresSelect.options[genres.selectedIndex];
+        //або
+        selectedGenre = genresSelect.querySelector('[selected]');
+
+        alert(`Значення вибраного пункту: ${selectedGenre.value}`);
+        // alert(`Значення вибраного пункту: ${genresSelect.value}`); //також можна отримати значення вибраного option напряму з select
+        alert(`Текст вибраного пункту: ${selectedGenre.textContent}`);
+
+        let newOption = new Option('Класика', 'classic');
+        // new Option('Класика', 'classic', true, true); //також можна одразу вcтановити selected = true в конструкторі
+        newOption = document.createElement('option');
+        newOption.value = 'classic';
+        newOption.textContent = 'Класика';
+        genres.append(newOption);
+        
+        newOption.selected = true;
+        // alert(genresSelect.value == 'classic'); //перевіка вибраного пункту
+        //або
+        genresSelect.value = 'classic';
+        // alert(genresSelect.value == 'classic'); //перевіка вибраного пункту
+        //або
+        genresSelect.selectedIndex = 2;
+        // alert(genresSelect.value == 'classic'); //перевіка вибраного пункту
+    </script>
+</body>
+
+</html>

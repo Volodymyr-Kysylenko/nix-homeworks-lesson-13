@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 7</title>
+</head>
+
+<body>
+    <button id="button">Button</button>
+
+    <script>
+        button.addEventListener('click', () => alert ('1'));
+        button.removeEventListener('click', () => alert ('1'));
+        button.onclick = () => alert(2);
+
+        //Спарцюють обидва обробники зі строк 14 та 16, оскільки на 15 строці ми передаємо в removeEventListener іншу функцію, хоча і однакову за синтаксисом
+        //Це пов'язано з тим як влаштовані стрілкові функції
+        //Обробник подій, доданий через addEventListener буде працювати незалежно від обробника доданого через onclick
+    </script>
+</body>
+
+</html>
